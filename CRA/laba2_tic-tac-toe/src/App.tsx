@@ -14,18 +14,18 @@ function Board({ xIsNext, squares, onPlay }) {
       return;
     }
     const nextSquares = squares.slice();
-    if (xIsNext) {
-      nextSquares[i] = 'X';
-    } else {
-      nextSquares[i] = 'O';
-    }
+    nextSquares[i] = xIsNext ? 'X' : 'O';
     onPlay(nextSquares);
   }
 
   const winner = calculateWinner(squares);
+  const isDraw = !winner && squares.every((square) => square !== null);
+
   let status;
   if (winner) {
     status = 'Победил: ' + winner;
+  } else if (isDraw) {
+    status = 'Ничья';
   } else {
     status = 'Ходит игрок: ' + (xIsNext ? 'X' : 'O');
   }
