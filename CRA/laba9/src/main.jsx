@@ -9,5 +9,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <ThemeProvider attribute="class" disableTransitionOnChange>
     <App />
   </ThemeProvider>
-</ChakraProvider>
+  </ChakraProvider>
 );
